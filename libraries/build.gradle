@@ -1,0 +1,103 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4G"
+        preDexLibraries = false
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    // android
+    implementation "androidx.appcompat:appcompat:$androidx_appcompat"
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.legacy:legacy-support-v4:$legacy_support_v4"
+    implementation "androidx.cardview:cardview:$cardview"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview"
+    implementation "androidx.annotation:annotation:$annotation"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
+    implementation "androidx.vectordrawable:vectordrawable-animated:$vectordrawable_animated"
+    implementation "androidx.exifinterface:exifinterface:$exifinterface"
+    implementation "androidx.core:core-ktx:$androidx_version"
+    implementation "androidx.fragment:fragment-ktx:$androidx_version"
+    implementation "androidx.collection:collection-ktx:$androidx_version"
+
+    // java
+    implementation "androidx.multidex:multidex:$multidexVer"
+    implementation "com.google.guava:guava:$guavaVer"
+
+    // butter knife
+    implementation("com.jakewharton:butterknife:$butterknifeVer") {
+        exclude module: 'support-compat'
+    }
+    kapt "com.jakewharton:butterknife-compiler:$butterknifeVer"
+
+    // dependency injection
+    implementation "com.google.dagger:dagger:$daggerVer"
+    kapt "com.google.dagger:dagger-compiler:$daggerVer"
+
+    // network
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVer"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVer"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVer"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVer"
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVer"
+
+    // rx java, android
+    implementation "io.reactivex.rxjava2:rxandroid:$rxjandroid"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava"
+
+    // rx lifecycle
+    implementation "com.trello.rxlifecycle3:rxlifecycle:$rxlifecycle"
+    implementation "com.trello.rxlifecycle3:rxlifecycle-android:$rxlifecycle"
+
+    // rx permission
+    implementation "com.github.tbruyelle:rxpermissions:$rxpermissions"
+
+    // animation
+    implementation "com.nineoldandroids:library:$nineoldandroidsVer"
+
+    // leak canary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanary"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanary"
+
+    // picasso
+    implementation "com.squareup.picasso:picasso:$picasso"
+    implementation "jp.wasabeef:picasso-transformations:$picassoTransform"
+}

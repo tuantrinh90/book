@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="padding_layout">12dp</dimen>
+    <dimen name="padding_content">8dp</dimen>
+
+    <!--radius-->
+    <dimen name="radius">5dp</dimen>
+
+    <!--border-->
+    <dimen name="size_border">1dp</dimen>
+
+    <!--Shadow layout-->
+    <dimen name="shadow_layout_default_corner_radius">4dp</dimen>
+    <dimen name="shadow_layout_default_shadow_radius">4dp</dimen>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_background"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:title="@string/app_name">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_layout">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.dz.libraries.views.textviews.ExtTextView
+                        android:id="@+id/tvNewest"
+                        style="@style/ButtonDropdown"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/newest_to_oldest" />
+
+                    <com.dz.libraries.views.textviews.ExtTextView
+                        android:id="@+id/tvClosed"
+                        style="@style/ButtonDropdown"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/padding_layout"
+                        android:layout_weight="1"
+                        android:text="@string/not_joined_yet" />
+                </LinearLayout>
+
+                <com.dz.libraries.views.textviews.ExtTextView
+                    android:id="@+id/tvTotalContent"
+                    style="@style/StyleNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_content"
+                    android:gravity="center"
+                    android:padding="0dp"
+                    android:text=""
+                    android:textColor="@color/color_border" />
+            </LinearLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.dz.libraries.views.recyclerviews.ExtRecyclerView
+        android:id="@+id/rvResult"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/padding_layout"
+        android:layout_marginRight="@dimen/padding_layout"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:rvNoDataMessage="@string/no_data" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

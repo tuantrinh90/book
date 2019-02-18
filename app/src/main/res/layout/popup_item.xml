@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_null_gray_selector"
+    android:orientation="vertical">
+
+    <com.dz.libraries.views.textviews.ExtTextView
+        android:id="@+id/tvContent"
+        style="@style/StyleNormal"
+        android:layout_marginLeft="@dimen/padding_content"
+        android:layout_marginRight="@dimen/padding_content"
+        tools:text="@string/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

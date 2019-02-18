@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">Libraries</string>
+
+    <!--FONT-->
+    <string name="font_bold_display">fonts/sf_pro_display_bold.ttf</string>
+    <string name="font_normal_display">fonts/sf_pro_display_regular.ttf</string>
+    <string name="font_normal_italic_display">fonts/sf_pro_display_regular_italic.ttf</string>
+
+    <!--<string name="font_sf_pro_display_regular_italic">fonts/sf_pro_display_regular_italic.ttf</string>-->
+    <!--<string name="font_sf_pro_display_bold">fonts/sf_pro_display_bold.ttf</string>-->
+    <!--<string name="font_sf_pro_display_regular">fonts/sf_pro_display_regular.ttf</string>-->
+    <!--<string name="font_sf_pro_display_black">fonts/sf_pro_display_black.ttf</string>-->
+
+    <!--<string name="font_lato_bold">fonts/lato_bold.ttf</string>-->
+    <!--<string name="font_lato_bold_italic">fonts/lato_bold_italic.ttf</string>-->
+    <!--<string name="font_lato_italic">fonts/lato_italic.ttf</string>-->
+    <!--<string name="font_lato_regular">fonts/lato_regular.ttf</string>-->
+
+    <!--<string name="font_pro_display_semi_bold">fonts/sf_pro_display_semi_bold.ttf</string>-->
+    <!--<string name="font_pro_display_black">fonts/sf_pro_display_black.ttf</string>-->
+    <!--<string name="font_pro_display_black_italic">fonts/sf_pro_display_black_italic.ttf</string>-->
+    <!--<string name="font_pro_display_bold">fonts/sf_pro_display_bold.ttf</string>-->
+    <!--<string name="font_pro_display_heavy">fonts/sf_pro_display_heavy.ttf</string>-->
+    <!--<string name="font_pro_display_heavy_italic">fonts/sf_pro_display_heavy_italic.ttf</string>-->
+    <!--<string name="font_pro_display_regular">fonts/sf_pro_display_regular.ttf</string>-->
+    <!--<string name="font_pro_display_regular_italic">fonts/sf_pro_display_regular_italic.ttf</string>-->
+
+    <!--APP-->
+    <string name="read_more">show more</string>
+    <string name="read_less">show less</string>
+    <string name="loading">loading…</string>
+    <string name="no_data">No data to show</string>
+
+    <string name="double_tap_to_exit">Double tap to Exit!</string>
+    <string name="cancel">Cancel</string>
+    <string name="select_value">Select value</string>
+    <string name="search">Search</string>
+    <string name="done">Done</string>
+    <string name="percent_label">%</string>
+
+    <string name="day">Day</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="hour">Hour</string>
+    <string name="minute">Minute</string>
+
+    <string name="month_one">Jan</string>
+    <string name="month_two">Feb</string>
+    <string name="month_three">Mar</string>
+    <string name="month_four">Apr</string>
+    <string name="month_five">May</string>
+    <string name="month_six">Jun</string>
+    <string name="month_seven">Jul</string>
+    <string name="month_eight">Aug</string>
+    <string name="month_nice">Sep</string>
+    <string name="month_ten">Oct</string>
+    <string name="month_eleven">Nov</string>
+    <string name="month_twelfth">Dec</string>
+</resources>

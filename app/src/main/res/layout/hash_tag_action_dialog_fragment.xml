@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_add_hashtag">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <com.dz.libraries.views.textviews.ExtTextView
+            style="@style/StyleXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_layout"
+            android:text="@string/add_hash_tag" />
+
+        <com.dz.libraries.views.edittexts.ExtEditText
+            android:id="@+id/etName"
+            style="@style/StyleNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_layout"
+            android:background="@drawable/bg_white_border_gray_radius" />
+
+        <View
+            style="@style/LineHorizontal"
+            android:layout_marginTop="@dimen/padding_layout" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dz.libraries.views.textviews.ExtTextView
+                android:id="@+id/tvCancel"
+                style="@style/StyleXLarge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_null_gray_selector"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="@color/colorPrimary" />
+
+            <View style="@style/LineVertical" />
+
+            <com.dz.libraries.views.textviews.ExtTextView
+                android:id="@+id/tvConfirm"
+                style="@style/StyleXLarge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_null_gray_selector"
+                android:gravity="center"
+                android:text="@string/confirm"
+                android:textColor="@color/colorPrimary"
+                app:textViewFontAssetName="@string/font_bold_display" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

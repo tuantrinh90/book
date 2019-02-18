@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CRP</string>
+    <string name="double_tap_to_exit">Double tap to Exit!</string>
+    <string name="loading">loading…</string>
+
+    <!--network error-->
+    <string name="some_thing_wrong">Something went wrong. Please, try again later…</string>
+    <string name="you_are_offline">You are offline</string>
+    <string name="no_internet">Something wrong here. Retry connection or try again later.</string>
+    <string name="server_not_responding">Server is temporary unavailable, please try again later.</string>
+    <string name="server_not_found">Not found, please try again later.</string>
+    <string name="forbidden">Forbidden</string>
+    <string name="unknown_error">Unknown error.</string>
+    <string name="unauthorized">Unauthorized</string>
+    <string name="not_found_resource">Not found resource!!!!!</string>
+
+    <!--valid error-->
+    <string name="error_only_numeric_digits_allowed">Only numeric digits are allowed.</string>
+    <string name="error_this_field_cannot_contain_special_character">This field cannot contain any special character</string>
+    <string name="error_only_standard_letters_are_allowed">Only standard letters are allowed</string>
+    <string name="error_field_must_not_be_empty">This field is required</string>
+    <string name="error_email_address_not_valid">Email address invalid</string>
+    <string name="error_creditcard_number_not_valid">Credit card number invalid</string>
+    <string name="error_phone_not_valid">Phone number invalid</string>
+    <string name="error_domain_not_valid">Domain name invalid</string>
+    <string name="error_ip_not_valid">IP Address invalid</string>
+    <string name="error_url_not_valid">Web Url invalid</string>
+    <string name="error_regexp_not_valid">Reg exp invalid</string>
+    <string name="error_min_6_character">This field must be more than 6 characters</string>
+    <string name="error_confirm_not_match">You must enter the same password twice in order to retype it</string>
+    <string name="error_network">Network is not available!</string>
+    <string name="error_must_choose_at_least_one_item">You must choose at least one item</string>
+    <string name="error_change_password_required">Minimum 6 characters or longer, at least 1 Cap, 1 small, 1 number and 1 special character</string>
+    <string name="error_valid_hash_tag">You have to add least 1 hashtag for contest submission</string>
+    <string name="error_valid_add_friend">You have to add at least 5 your friends for contest submission</string>
+    <string name="error_valid_add_image">You have to upload 04 images for contest submission</string>
+
+    <!--error app-->
+    <string name="no_data">No data to show</string>
+    <string name="select_value">Select value</string>
+    <string name="search">Search</string>
+    <string name="done">Done</string>
+
+    <!--app-->
+    <string name="sign_in">Sign In</string>
+    <string name="change_password">Change Password</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="my_profile">My Profile</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="ok">OK</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="user_name">User name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_email">Forgot email</string>
+    <string name="forgot_password_lower">Forgot password</string>
+    <string name="create_account_description">Don\'t you have an account?</string>
+    <string name="sign_in_with">Sign in with</string>
+    <string name="welcome_to_crp">Welcome to CRP</string>
+    <string name="sign_in_to_continue">Sign in to continue</string>
+    <string name="contest">Contest</string>
+    <string name="on_going_contest">On-going Contests</string>
+    <string name="closed_contests">Closed Contests</string>
+    <string name="newest_to_oldest">Newest to oldest</string>
+    <string name="oldest_to_newest">Oldest to newest</string>
+    <string name="joined">Joined</string>
+    <string name="not_joined_yet">Not joined yet</string>
+    <string name="all">All</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="total_contest">Total: %d contests</string>
+    <string name="join">Join</string>
+    <string name="from_to">From: %s\t\tTo: %s</string>
+    <string name="type_row">Type: %s</string>
+    <string name="submissions">Submissions: %s</string>
+    <string name="home">Home</string>
+    <string name="just_a_minute">Just 1M</string>
+    <string name="menu">Menu</string>
+    <string name="title_contest">Contest</string>
+    <string name="all_field_required">All fields are required</string>
+    <string name="description">Description</string>
+    <string name="description_hint">Say something about video...</string>
+    <string name="upload_image">Upload image</string>
+    <string name="label_image">To %d images</string>
+    <string name="selected_image">Select image</string>
+    <string name="label_tag">Tag to increase discoverability</string>
+    <string name="add">+Add</string>
+    <string name="add_friend">Add to friend</string>
+    <string name="label_friend">%d friends at minimum</string>
+    <string name="image">Image</string>
+    <string name="video">Video</string>
+    <string name="upload_video">Upload video</string>
+    <string name="library">Library</string>
+    <string name="submit">Submit</string>
+    <string name="search_by_tag">Search by tag</string>
+    <string name="recommended">Recommend</string>
+    <string name="add_hash_tag">Add hashtag</string>
+    <string name="confirm">Confirm</string>
+    <string name="hash_tag">Hashtag</string>
+    <string name="search_by_name">Search by name</string>
+    <string name="add_friends">Add friends</string>
+    <string name="viewer">Viewer</string>
+    <string name="create_contest_success">You have joined the contest successfully</string>
+</resources>

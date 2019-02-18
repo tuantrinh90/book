@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vMessage"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_red"
+    android:gravity="center"
+    android:minHeight="@dimen/toast_height_min"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        style="@style/IconSmall"
+        android:src="@mipmap/ic_launcher"
+        tools:ignore="ContentDescription" />
+
+    <com.dz.libraries.views.textviews.ExtTextView
+        android:id="@+id/tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_layout"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text=""
+        android:textColor="@color/color_white" />
+</LinearLayout>

@@ -1,0 +1,5 @@
+package com.dz.commons.activities.alonefragment
+
+import com.dz.commons.presenters.IBaseActivityMvpPresenter
+
+interface IAloneFragmentActivityPresenter : IBaseActivityMvpPresenter<IAloneFragmentActivityView>

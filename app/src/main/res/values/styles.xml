@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+
+        <!-- you should set typeface which you want to override with TypefaceUtil -->
+        <item name="android:typeface">serif</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
+
+        <item name="android:actionMenuTextColor">@color/colorPrimary</item>
+        <item name="android:actionMenuTextAppearance">@style/ActionMenuText</item>
+    </style>
+
+    <style name="ActionMenuText">
+        <item name="android:textSize">@dimen/font_size_large</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- Define your custom dialog theme here extending from base -->
+    <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:windowEnterAnimation">@anim/slide_down_top_to_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_up_top_to_bottom</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimationTopToBottom</item>
+    </style>
+
+    <!--tab layout-->
+    <style name="MyTabLayout" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
+    </style>
+
+    <!--FONT SIZE-->
+    <style name="StyleXXLarge">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_xxlarge</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+
+    <style name="StyleXLarge">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_xlarge</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+
+    <style name="StyleLarge">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_large</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+
+    <style name="StyleNormal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_normal</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+
+    <style name="StyleMedium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+
+    <style name="StyleSmall">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+
+    <style name="StyleTiny">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_tiny</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+
+    <!--AVATAR-->
+    <style name="AvatarSmall">
+        <item name="android:layout_width">@dimen/avatar_small</item>
+        <item name="android:layout_height">@dimen/avatar_small</item>
+    </style>
+
+    <style name="AvatarTiny">
+        <item name="android:layout_width">@dimen/avatar_tiny</item>
+        <item name="android:layout_height">@dimen/avatar_tiny</item>
+    </style>
+
+    <style name="AvatarMedium">
+        <item name="android:layout_width">@dimen/avatar_medium</item>
+        <item name="android:layout_height">@dimen/avatar_medium</item>
+    </style>
+
+    <style name="AvatarNormal">
+        <item name="android:layout_width">@dimen/avatar_normal</item>
+        <item name="android:layout_height">@dimen/avatar_normal</item>
+    </style>
+
+    <style name="AvatarLarge">
+        <item name="android:layout_width">@dimen/avatar_large</item>
+        <item name="android:layout_height">@dimen/avatar_large</item>
+    </style>
+
+    <style name="AvatarXLarge">
+        <item name="android:layout_width">@dimen/avatar_xlarge</item>
+        <item name="android:layout_height">@dimen/avatar_xlarge</item>
+    </style>
+
+    <style name="AvatarXXLarge">
+        <item name="android:layout_width">@dimen/avatar_xxlarge</item>
+        <item name="android:layout_height">@dimen/avatar_xxlarge</item>
+    </style>
+
+    <!--ICON-->
+    <style name="IconTiny">
+        <item name="android:layout_width">@dimen/icon_tiny</item>
+        <item name="android:layout_height">@dimen/icon_tiny</item>
+    </style>
+
+    <style name="IconSmall">
+        <item name="android:layout_width">@dimen/icon_small</item>
+        <item name="android:layout_height">@dimen/icon_small</item>
+    </style>
+
+    <style name="IconMedium">
+        <item name="android:layout_width">@dimen/icon_medium</item>
+        <item name="android:layout_height">@dimen/icon_medium</item>
+    </style>
+
+    <style name="IconNormal">
+        <item name="android:layout_width">@dimen/icon_normal</item>
+        <item name="android:layout_height">@dimen/icon_normal</item>
+    </style>
+
+    <style name="IconLarge">
+        <item name="android:layout_width">@dimen/icon_large</item>
+        <item name="android:layout_height">@dimen/icon_large</item>
+    </style>
+
+    <style name="IconXLarge">
+        <item name="android:layout_width">@dimen/icon_xlarge</item>
+        <item name="android:layout_height">@dimen/icon_xlarge</item>
+    </style>
+
+    <style name="IconXXLarge">
+        <item name="android:layout_width">@dimen/icon_xxlarge</item>
+        <item name="android:layout_height">@dimen/icon_xxlarge</item>
+    </style>
+
+    <!--button-->
+    <style name="ButtonPrimary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:textSize">@dimen/font_size_xlarge</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:padding">@dimen/padding_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/padding_layout</item>
+        <item name="android:layout_marginRight">@dimen/padding_layout</item>
+        <item name="android:elevation">@dimen/elevation</item>
+    </style>
+
+    <style name="ButtonWhiteBorderGray">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_button_dropdown</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:textSize">@dimen/font_size_xlarge</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:padding">@dimen/padding_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:elevation">@dimen/elevation</item>
+    </style>
+
+    <style name="ButtonDropdown" parent="ButtonWhiteBorderGray">
+        <item name="android:textSize">@dimen/font_size_medium</item>
+        <item name="android:drawableRight">@drawable/ic_arrow_down</item>
+    </style>
+
+    <style name="ButtonDotDash">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_button_dot_dash</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/font_size_large</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:padding">@dimen/padding_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/padding_layout</item>
+        <item name="android:layout_marginRight">@dimen/padding_layout</item>
+        <item name="android:elevation">@dimen/elevation</item>
+    </style>
+
+    <!--line-->
+    <style name="LineHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line</item>
+        <item name="android:background">@color/color_background</item>
+    </style>
+
+    <style name="LineVertical">
+        <item name="android:layout_width">@dimen/line</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/color_background</item>
+    </style>
+</resources>

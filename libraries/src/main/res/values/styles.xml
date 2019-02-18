@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="StyleProgressDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <!--Dialog Animation-->
+    <style name="DialogAnimationBottomToTop">
+        <item name="android:windowEnterAnimation">@anim/slide_up_bottom_to_top</item>
+        <item name="android:windowExitAnimation">@anim/slide_down_bottom_to_top</item>
+    </style>
+
+    <style name="DialogAnimationTopToBottom">
+        <item name="android:windowEnterAnimation">@anim/slide_down_top_to_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_up_top_to_bottom</item>
+    </style>
+
+    <style name="StyleXXLarge">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_xxlarge</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+
+    <style name="StyleXLarge">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_xlarge</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+
+    <style name="StyleLarge">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_large</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+
+    <style name="StyleNormal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_normal</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="StyleNormalBold" parent="StyleNormal">
+       <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="StyleMedium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+
+    <style name="StyleSmall">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+
+    <style name="StyleTiny">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_size_tiny</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:padding">@dimen/padding_content</item>
+    </style>
+</resources>

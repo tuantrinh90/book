@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EditTextApp">
+        <attr name="editTextAppContent" format="string" />
+        <attr name="editTextAppContentColor" format="reference"/>
+
+        <attr name="editTextAppLabel" format="string" />
+        <attr name="editTextAppLabelColor" format="reference" />
+
+        <attr name="editTextAppHint" format="reference" />
+        <attr name="editTextAppHintColor" format="reference"/>
+
+        <attr name="editTextAppIconLeft" format="reference" />
+        <attr name="editTextAppIconRight" format="reference" />
+
+        <attr name="editTextAppEnable" format="boolean" />
+
+        <attr name="editTextAppLineVisible" format="boolean"/>
+        <attr name="editTextAppLineColor" format="reference"/>
+
+        <attr name="editTextAppLabelRight" format="string"/>
+
+        <attr name="editTextInputLayout" format="boolean"/>
+
+        <attr name="android:inputType" />
+        <attr name="android:imeOptions" />
+        <attr name="android:lines" />
+        <attr name="android:maxLength" />
+    </declare-styleable>
+</resources>

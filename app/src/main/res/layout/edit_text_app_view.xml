@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_content"
+        android:layout_marginLeft="@dimen/padding_layout"
+        android:layout_marginRight="@dimen/padding_layout"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/icon_medium"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_content"
+            android:layout_marginRight="@dimen/padding_content"
+            android:contentDescription="TODO"
+            android:visibility="invisible"
+            tools:ignore="ContentDescription,HardcodedText,RtlHardcoded"
+            tools:visibility="visible" />
+
+        <com.dz.libraries.views.textviews.ExtTextView
+            android:id="@+id/tvLabel"
+            style="@style/StyleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:textColor="@color/color_label"
+            android:visibility="visible"
+            tools:text="@string/app_name"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_layout"
+        android:layout_marginRight="@dimen/padding_layout"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivIconLeft"
+            style="@style/IconMedium"
+            android:layout_marginEnd="@dimen/padding_content"
+            android:layout_marginRight="@dimen/padding_content"
+            android:contentDescription="TODO"
+            android:src="@drawable/ic_eye"
+            android:visibility="gone"
+            tools:ignore="ContentDescription,HardcodedText,RtlHardcoded"
+            tools:visibility="visible" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_content"
+            android:layout_marginTop="@dimen/padding_content"
+            android:layout_weight="1">
+
+            <com.dz.libraries.views.edittexts.ExtEditText
+                android:id="@+id/etContent"
+                style="@style/StyleNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="top|start"
+                android:lines="1"
+                android:padding="0dp"
+                tools:hint="@string/app_name"
+                tools:visibility="gone" />
+
+            <com.dz.libraries.views.textviews.ExtTextView
+                android:id="@+id/tvContent"
+                style="@style/StyleNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:padding="0dp"
+                android:visibility="gone"
+                tools:hint="@string/app_name" />
+
+            <com.dz.libraries.views.textviews.ExtTextView
+                android:id="@+id/tvHintLayout"
+                style="@style/StyleNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:padding="0dp"
+                android:textColor="@color/color_label"
+                android:visibility="gone"
+                tools:hint="@string/app_name"
+                tools:visibility="visible" />
+        </FrameLayout>
+
+
+        <ImageView
+            android:id="@+id/ivIconRight"
+            style="@style/IconMedium"
+            android:layout_marginLeft="@dimen/padding_content"
+            android:layout_marginStart="@dimen/padding_content"
+            android:background="@drawable/bg_null_gray_selector"
+            android:contentDescription="TODO"
+            android:src="@drawable/ic_eye"
+            android:visibility="gone"
+            tools:ignore="ContentDescription,HardcodedText,RtlHardcoded"
+            tools:visibility="visible" />
+
+        <com.dz.libraries.views.textviews.ExtTextView
+            android:id="@+id/tvRightLabel"
+            style="@style/StyleNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content"
+            android:layout_marginStart="@dimen/padding_content"
+            android:padding="0dp"
+            android:visibility="gone"
+            tools:hint="@string/app_name"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/vLine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line"
+        android:layout_marginLeft="@dimen/padding_layout"
+        android:layout_marginRight="@dimen/padding_layout"
+        android:background="@color/color_black" />
+
+    <com.dz.libraries.views.textviews.ExtTextView
+        android:id="@+id/tvError"
+        style="@style/StyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="@dimen/padding_layout"
+        android:layout_marginRight="@dimen/padding_layout"
+        android:layout_marginTop="@dimen/padding_content"
+        android:padding="0dp"
+        android:textColor="@color/color_red"
+        android:visibility="gone"
+        tools:text="@string/app_name"
+        tools:visibility="gone" />
+</LinearLayout>

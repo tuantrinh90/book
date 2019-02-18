@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="max_length_email">50</integer>
+    <integer name="min_length_password">8</integer>
+    <integer name="max_length_password">30</integer>
+    <integer name="max_length_firstname">255</integer>
+    <integer name="max_length_lastname">255</integer>
+    <integer name="max_length_text_search">255</integer>
+</resources>

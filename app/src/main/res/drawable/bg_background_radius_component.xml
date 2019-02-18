@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:color="@color/color_gray_pressed"
+    tools:targetApi="lollipop">
+    <item android:id="@android:id/background">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <corners android:radius="@dimen/radius_component" />
+
+            <gradient
+                android:endColor="@color/color_background"
+                android:startColor="@color/color_background" />
+        </shape>
+    </item>
+</ripple>
+

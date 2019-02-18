@@ -1,0 +1,2 @@
+alias: crp
+pass: abcd@1234
