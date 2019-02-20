@@ -6,13 +6,14 @@ import com.dz.ui.R
 import com.dz.ui.fragments.BaseMainFragment
 import io.reactivex.disposables.CompositeDisposable
 
-class InfomationFragment : BaseMainFragment<IDownloadView, IDownloadPresenter>(), IDownloadView {
+class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetailView {
 
-    override fun createPresenter(): IDownloadPresenter = DownloadPresenter(appComponent)
+    override fun createPresenter(): IDetailPresenter = DetailPresenter(appComponent)
 
     override val resourceId: Int get() = R.layout.history_fragment
 
     override val titleId: Int get() = R.string.home
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -10,10 +10,7 @@ import com.dz.commons.activities.BaseAppCompatActivity
 import com.dz.commons.fragments.BaseMvpFragment
 import com.dz.ui.R
 import com.dz.ui.adapters.FragmentViewPagerAdapter
-import com.dz.ui.fragments.history.DownloadFragment
-import com.dz.ui.fragments.history.FavoriteFragment
-import com.dz.ui.fragments.history.HistoryFragment
-import com.dz.ui.fragments.history.InfomationFragment
+import com.dz.ui.fragments.history.*
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
 
@@ -64,20 +61,12 @@ class MainActivity : BaseAppCompatActivity<IMainActivityView, IMainActivityPrese
 
         val fragments = ArrayList<BaseMvpFragment<*, *>>()
         fragments.add(HistoryFragment()
-                .setCompositeDisposable(mCompositeDisposable)
-                .setType(HistoryFragment.Type.OPEN)
                 .setChildFragment(true))
         fragments.add(FavoriteFragment()
-                .setCompositeDisposable(mCompositeDisposable)
-                .setType(FavoriteFragment.Type.CLOSE)
                 .setChildFragment(true))
         fragments.add(DownloadFragment()
-                .setCompositeDisposable(mCompositeDisposable)
-                .setType(DownloadFragment.Type.CLOSE)
                 .setChildFragment(true))
         fragments.add(InfomationFragment()
-                .setCompositeDisposable(mCompositeDisposable)
-                .setType(InfomationFragment.Type.CLOSE)
                 .setChildFragment(true))
 
         vpViewPager.adapter = FragmentViewPagerAdapter(supportFragmentManager,fragments,titles)

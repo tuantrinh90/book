@@ -7,9 +7,6 @@ import com.dz.ui.fragments.BaseMainFragment
 import io.reactivex.disposables.CompositeDisposable
 
 class DownloadFragment : BaseMainFragment<IDownloadView, IDownloadPresenter>(), IDownloadView {
-    enum class Type {
-        OPEN, CLOSE
-    }
 
     override fun createPresenter(): IDownloadPresenter = DownloadPresenter(appComponent)
 
@@ -17,20 +14,8 @@ class DownloadFragment : BaseMainFragment<IDownloadView, IDownloadPresenter>(), 
 
     override val titleId: Int get() = R.string.home
 
-    var mType = DownloadFragment.Type.OPEN
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindButterKnife(view)
     }
-
-    fun setCompositeDisposable(compositeDisposable: CompositeDisposable): DownloadFragment {
-        return this
-    }
-
-    fun setType(type: DownloadFragment.Type): DownloadFragment {
-        mType = type
-        return this
-    }
-
 }
