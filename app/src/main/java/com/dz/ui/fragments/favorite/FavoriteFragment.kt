@@ -13,7 +13,7 @@ class FavoriteFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDet
 
     override fun createPresenter(): IDetailPresenter = DetailPresenter(appComponent)
 
-    override val resourceId: Int get() = R.layout.history_fragment
+    override val resourceId: Int get() = R.layout.favorite_fragment
 
     override val titleId: Int get() = R.string.home
 

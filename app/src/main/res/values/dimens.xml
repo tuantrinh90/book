@@ -67,8 +67,8 @@
     <dimen name="menu_home_radius">25dp</dimen>
 
     <!--sign in-->
-    <dimen name="splash_logo_width">280dp</dimen>
-    <dimen name="splash_logo_height">122dp</dimen>
+    <dimen name="splash_logo_width">200dp</dimen>
+    <dimen name="splash_logo_height">200dp</dimen>
 
     <!--sign in-->
     <dimen name="sign_in_padding_layout">20dp</dimen>
