@@ -13,7 +13,7 @@ class DownloadFragment : BaseMainFragment<IDownloadView, IDownloadPresenter>(), 
 
     override fun createPresenter(): IDownloadPresenter = DownloadPresenter(appComponent)
 
-    override val resourceId: Int get() = R.layout.home_fragment
+    override val resourceId: Int get() = R.layout.history_fragment
 
     override val titleId: Int get() = R.string.home
 
