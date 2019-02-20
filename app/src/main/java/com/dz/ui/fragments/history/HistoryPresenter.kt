@@ -13,9 +13,22 @@ class HistoryPresenter(appComponent: AppComponent) : BaseFragmentMvpPresenter<IH
             book.author = "Thích Giác Nhàn"
             book.name = "Vô lượng thọ"
             book.categoryId = 0
+
+            var book1 = BookResponse()
+            book1.link = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokoT2fdDP5dm7RvVh80_LvoxdhF4By5DkcliO4yukgMMOeRZj"
+            book1.author = "Hòa thượng tinh không"
+            book1.name = "Tải kinh a di đà"
+            book1.categoryId = 0
+
+            var book2 = BookResponse()
+            book2.link = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokoT2fdDP5dm7RvVh80_LvoxdhF4By5DkcliO4yukgMMOeRZj"
+            book2.author = "Pháp sư văn sao"
+            book2.name = "Ấn quang pháp"
+            book2.categoryId = 0
+
             books.add(book)
-            books.add(book)
-            books.add(book)
+            books.add(book1)
+            books.add(book2)
             books.add(book)
             books.add(book)
             books.add(book)

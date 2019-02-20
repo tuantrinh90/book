@@ -2,12 +2,17 @@ package com.dz.ui.activities.main
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
 import butterknife.BindView
 import com.dz.commons.activities.BaseAppCompatActivity
 import com.dz.commons.fragments.BaseMvpFragment
+import com.dz.customizes.views.edittexts.EditTextApp
+import com.dz.libraries.utilities.StringUtility
 import com.dz.ui.R
 import com.dz.ui.adapters.FragmentViewPagerAdapter
 import com.dz.ui.fragments.history.*
@@ -24,6 +29,7 @@ class MainActivity : BaseAppCompatActivity<IMainActivityView, IMainActivityPrese
     lateinit var tlTabLayout: TabLayout
     @BindView(R.id.vpViewPager)
     lateinit var vpViewPager: ViewPager
+
 
     override val contentViewId: Int get() = com.dz.ui.R.layout.main_activity
 
@@ -69,7 +75,7 @@ class MainActivity : BaseAppCompatActivity<IMainActivityView, IMainActivityPrese
         fragments.add(InfomationFragment()
                 .setChildFragment(true))
 
-        vpViewPager.adapter = FragmentViewPagerAdapter(supportFragmentManager,fragments,titles)
+        vpViewPager.adapter = FragmentViewPagerAdapter(supportFragmentManager, fragments, titles)
         tlTabLayout.setupWithViewPager(vpViewPager)
     }
 
