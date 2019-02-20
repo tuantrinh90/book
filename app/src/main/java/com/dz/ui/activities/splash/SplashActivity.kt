@@ -23,7 +23,6 @@ class SplashActivity : BaseAppCompatActivity<ISplashActivityView, ISplashActivit
         super.onCreate(savedInstanceState)
 
         // go to main activity
-        MainActivity.fragmentState = MainActivity.FragmentState.HOME
         subscribeWith {
             Observable.timer(Constant.TIME_DELAY_NEXT_SCREEN, TimeUnit.SECONDS)
                     .observeOn(AndroidSchedulers.mainThread())

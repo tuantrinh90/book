@@ -2,52 +2,28 @@ package com.dz.ui.activities.main
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.appcompat.app.ActionBar
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.Toolbar
+import androidx.viewpager.widget.ViewPager
 import butterknife.BindView
-import butterknife.OnClick
 import com.dz.commons.activities.BaseAppCompatActivity
-import com.dz.customizes.views.footers.FooterItem
+import com.dz.commons.fragments.BaseMvpFragment
 import com.dz.ui.R
-import com.dz.ui.fragments.contests.ContestFragment
+import com.dz.ui.adapters.FragmentViewPagerAdapter
 import com.dz.ui.fragments.homes.HomeFragment
-import com.dz.ui.fragments.justaminutes.JustAMinuteFragment
-import com.dz.ui.fragments.menus.MenuFragment
-import com.dz.utilities.Constant
-import com.dz.utilities.FragmentUtility
-import com.dz.utilities.delayEach
 import com.google.android.material.appbar.AppBarLayout
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
+import com.google.android.material.tabs.TabLayout
 
 class MainActivity : BaseAppCompatActivity<IMainActivityView, IMainActivityPresenter>(), IMainActivityView {
-    companion object {
-        // default fragment
-        var fragmentState = FragmentState.CONTEST
-    }
-
-    enum class FragmentState { HOME, JUST_A_MINUTE, CONTEST, MENU }
 
     @BindView(R.id.ablAppBarLayout)
     lateinit var ablAppBarLayout: AppBarLayout
     @BindView(R.id.tbToolbar)
     lateinit var tbToolbar: Toolbar
-    @BindView(R.id.llFooter)
-    lateinit var llFooter: LinearLayout
-    @BindView(R.id.fiHome)
-    lateinit var fiHome: FooterItem
-    @BindView(R.id.fiJustMinute)
-    lateinit var fiJustMinute: FooterItem
-    @BindView(R.id.fiHomeMenu)
-    lateinit var fiHomeMenu: AppCompatImageView
-    @BindView(R.id.fiContest)
-    lateinit var fiContest: FooterItem
-    @BindView(R.id.fiMenu)
-    lateinit var fiMenu: FooterItem
+    @BindView(R.id.tlTabLayout)
+    lateinit var tlTabLayout: TabLayout
+    @BindView(R.id.vpViewPager)
+    lateinit var vpViewPager: ViewPager
 
     override val contentViewId: Int get() = com.dz.ui.R.layout.main_activity
 
@@ -69,13 +45,7 @@ class MainActivity : BaseAppCompatActivity<IMainActivityView, IMainActivityPrese
     }
 
     override fun initFragmentDefault() {
-        subscribeWith {
-            Observable.just("")
-                    .delayEach(Constant.TIME_DELAY_INIT_SCREEN, TimeUnit.MILLISECONDS)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe { switchTab() }
-        }
+
     }
 
     fun registerBus() {
@@ -83,60 +53,33 @@ class MainActivity : BaseAppCompatActivity<IMainActivityView, IMainActivityPrese
     }
 
     fun initView() {
-        setSupportActionBar(tbToolbar)
+        val titles = ArrayList<String>()
+        titles.add(getString(R.string.history))
+        titles.add(getString(R.string.favorite))
+        titles.add(getString(R.string.download))
+        titles.add(getString(R.string.infomation))
+
+        val fragments = ArrayList<BaseMvpFragment<*, *>>()
+        fragments.add(HomeFragment()
+                .setCompositeDisposable(mCompositeDisposable)
+                .setType(HomeFragment.Type.OPEN)
+                .setChildFragment(true))
+        fragments.add(HomeFragment()
+                .setCompositeDisposable(mCompositeDisposable)
+                .setType(HomeFragment.Type.CLOSE)
+                .setChildFragment(true))
+        fragments.add(HomeFragment()
+                .setCompositeDisposable(mCompositeDisposable)
+                .setType(HomeFragment.Type.CLOSE)
+                .setChildFragment(true))
+        fragments.add(HomeFragment()
+                .setCompositeDisposable(mCompositeDisposable)
+                .setType(HomeFragment.Type.CLOSE)
+                .setChildFragment(true))
+
+        vpViewPager.adapter = FragmentViewPagerAdapter(supportFragmentManager,fragments,titles)
+        tlTabLayout.setupWithViewPager(vpViewPager)
     }
 
-    fun switchTab() {
-        clearStackFragment()
-        when (fragmentState) {
-            FragmentState.HOME -> FragmentUtility.replaceFragment(this, HomeFragment())
-            FragmentState.JUST_A_MINUTE -> FragmentUtility.replaceFragment(this, JustAMinuteFragment())
-            FragmentState.CONTEST -> FragmentUtility.replaceFragment(this, ContestFragment())
-            FragmentState.MENU -> FragmentUtility.replaceFragment(this, MenuFragment())
-        }
-        activeFooterItem()
-    }
 
-    fun activeFooterItem() {
-        fiHome.setActiveMode(this, false)
-        fiJustMinute.setActiveMode(this, false)
-        fiContest.setActiveMode(this, false)
-        fiMenu.setActiveMode(this, false)
-
-        when (fragmentState) {
-            FragmentState.HOME -> fiHome.setActiveMode(this, true)
-            FragmentState.JUST_A_MINUTE -> fiJustMinute.setActiveMode(this, true)
-            FragmentState.CONTEST -> fiContest.setActiveMode(this, true)
-            FragmentState.MENU -> fiMenu.setActiveMode(this, true)
-        }
-    }
-
-    @OnClick(R.id.fiHome)
-    fun onClickHome() {
-        fragmentState = FragmentState.HOME
-        switchTab()
-    }
-
-    @OnClick(R.id.fiJustMinute)
-    fun onClickJustMinute() {
-        fragmentState = FragmentState.JUST_A_MINUTE
-        switchTab()
-    }
-
-    @OnClick(R.id.fiHomeMenu)
-    fun onClickHomeMenu() {
-
-    }
-
-    @OnClick(R.id.fiContest)
-    fun onClickContest() {
-        fragmentState = FragmentState.CONTEST
-        switchTab()
-    }
-
-    @OnClick(R.id.fiMenu)
-    fun onClickMenu() {
-        fragmentState = FragmentState.MENU
-        switchTab()
-    }
 }

@@ -18,7 +18,6 @@ import com.dz.libraries.utilities.*
 import com.dz.libraries.views.keypairs.ExtKeyPair
 import com.dz.libraries.views.keypairs.ExtKeyPairDialogFragment
 import com.dz.ui.R
-import com.dz.ui.fragments.fileviewers.FileViewerFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
@@ -285,17 +284,5 @@ class AppUtility {
             }
         }
 
-        fun viewFile(context: Context, path: String?) {
-            if (!NetworkUtility.isNetworkAvailable(context)) return
-
-            StringUtility.with(path)
-                    .doIfPresent {
-                        AloneFragmentActivity.with(context)
-                                .parameters(FileViewerFragment.newBundle(it))
-                                .start(FileViewerFragment::class.java)
-                    }
-        }
-
-        fun viewFile(fragment: Fragment, path: String?) = viewFile(fragment.context!!, path)
     }
 }

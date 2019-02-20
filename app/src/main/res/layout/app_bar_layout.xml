@@ -14,8 +14,8 @@
         android:id="@+id/tbToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:contentInsetLeft="@dimen/padding_layout"
         android:contentInsetStart="@dimen/padding_layout"
+        android:contentInsetLeft="@dimen/padding_layout"
         app:contentInsetLeft="@dimen/padding_layout"
         app:contentInsetStart="@dimen/padding_layout"
         app:popupTheme="@style/AppTheme.PopupOverlay"
@@ -30,6 +30,13 @@
             android:singleLine="true"
             android:text="@string/app_name"
             android:textColor="@color/color_black"
+            android:visibility="gone"
             app:textViewFontAssetName="@string/font_normal_display" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="@string/search" />
     </androidx.appcompat.widget.Toolbar>
 </com.google.android.material.appbar.AppBarLayout>

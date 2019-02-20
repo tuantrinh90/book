@@ -106,4 +106,10 @@
     <string name="add_friends">Add friends</string>
     <string name="viewer">Viewer</string>
     <string name="create_contest_success">You have joined the contest successfully</string>
+
+    // tab layout
+    <string name="history">Thư viện</string>
+    <string name="favorite">Yêu thích</string>
+    <string name="download">Tải về</string>
+    <string name="infomation">Thông tin</string>
 </resources>
