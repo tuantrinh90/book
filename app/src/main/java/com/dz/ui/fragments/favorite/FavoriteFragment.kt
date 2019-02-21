@@ -6,12 +6,12 @@ import com.dz.ui.R
 import com.dz.ui.fragments.BaseMainFragment
 import io.reactivex.disposables.CompositeDisposable
 
-class FavoriteFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetailView {
+class FavoriteFragment : BaseMainFragment<IFavoriteView, IFavoritePresenter>(), IFavoriteView {
     enum class Type {
         OPEN, CLOSE
     }
 
-    override fun createPresenter(): IDetailPresenter = DetailPresenter(appComponent)
+    override fun createPresenter(): IFavoritePresenter = FavoritePresenter(appComponent)
 
     override val resourceId: Int get() = R.layout.favorite_fragment
 
