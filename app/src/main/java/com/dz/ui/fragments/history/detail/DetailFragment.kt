@@ -16,42 +16,50 @@ import com.dz.ui.fragments.history.detail.adapter.DetailAdapter
 import com.dz.utilities.Constant
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
-import com.google.android.youtube.player.YouTubePlayerView
+import android.widget.Toast
+import android.util.Log
+import androidx.fragment.app.FragmentTransaction
+import com.google.android.youtube.player.YouTubePlayerSupportFragment
+
 
 class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetailView {
-//    @BindView(R.id.youtubePlay)
-//    lateinit var youtubePlay: YouTubePlayerView
     @BindView(R.id.rvLinks)
     lateinit var rvLinks: RecyclerView
     var detailAdapter: DetailAdapter? = null
-    var onInitializedListener: YouTubePlayer.OnInitializedListener? = null
+    lateinit var transaction: FragmentTransaction
 
     override fun createPresenter(): IDetailPresenter = DetailPresenter(appComponent)
 
     override val resourceId: Int get() = R.layout.history_detail_fragment
 
     override val titleId: Int get() = R.string.detail
-
+    private val VIDEO_ID = "ZLNO2c7nqjw"
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindButterKnife(view)
         setHasOptionsMenu(true)
         initView()
-        //initYoutubePlayer()
+        initYoutubePlayer()
     }
 
     fun initYoutubePlayer() {
-        onInitializedListener = object : YouTubePlayer.OnInitializedListener {
-            override fun onInitializationSuccess(provider: YouTubePlayer.Provider, youTubePlayer: YouTubePlayer, b: Boolean) {
-                youTubePlayer.loadVideo("https://www.youtube.com/watch?v=W4hTJybfU7s")
+        val youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance()
+        transaction = childFragmentManager.beginTransaction()
+        transaction.add(R.id.youtube_layout, youTubePlayerFragment).commit()
+        youTubePlayerFragment.initialize(Constant.API_KEY, object : YouTubePlayer.OnInitializedListener {
+            override fun onInitializationSuccess(p0: YouTubePlayer.Provider, player: YouTubePlayer, p2: Boolean) {
+                player.loadVideo(VIDEO_ID)
+                player.play()
             }
 
-            override fun onInitializationFailure(provider: YouTubePlayer.Provider, youTubeInitializationResult: YouTubeInitializationResult) {
+            override fun onInitializationFailure(p0: YouTubePlayer.Provider?, error: YouTubeInitializationResult?) {
+                val errorMessage = error.toString()
+                showToastError(errorMessage)
+                Log.d("errorMessage:", errorMessage)
             }
-        }
-//        youtubePlay.initialize(Constant.API_KEY, onInitializedListener)
 
+        })
     }
 
     fun initView() {
