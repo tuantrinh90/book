@@ -19,6 +19,7 @@ import com.google.android.youtube.player.YouTubePlayer
 import android.widget.Toast
 import android.util.Log
 import androidx.fragment.app.FragmentTransaction
+import com.dz.libraries.utilities.StringUtility
 import com.google.android.youtube.player.YouTubePlayerSupportFragment
 
 
@@ -33,7 +34,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
     override val resourceId: Int get() = R.layout.history_detail_fragment
 
     override val titleId: Int get() = R.string.detail
-    private val VIDEO_ID = "ZLNO2c7nqjw"
+    private var VIDEO_ID = "ZLNO2c7nqjw"
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,7 +64,13 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
     }
 
     fun initView() {
-        detailAdapter = DetailAdapter(mActivity, null) {}
+        detailAdapter = DetailAdapter(mActivity, null) {
+            val link = it!!.link!!
+            if (!StringUtility.isNullOrEmpty(link)) {
+                if (link.contains("v="))
+                    VIDEO_ID = link.split("v=")[1]
+            }
+        }
         rvLinks.layoutManager = GridLayoutManager(mActivity, 2)
         rvLinks.isNestedScrollingEnabled = false
         rvLinks.adapter = detailAdapter
