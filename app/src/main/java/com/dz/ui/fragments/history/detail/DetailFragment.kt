@@ -19,7 +19,7 @@ import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerView
 
 class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetailView {
-    //    @BindView(R.id.youtubePlay)
+//    @BindView(R.id.youtubePlay)
 //    lateinit var youtubePlay: YouTubePlayerView
     @BindView(R.id.rvLinks)
     lateinit var rvLinks: RecyclerView
@@ -48,16 +48,15 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
             }
 
             override fun onInitializationFailure(provider: YouTubePlayer.Provider, youTubeInitializationResult: YouTubeInitializationResult) {
-
             }
         }
-        //youtubePlay.initialize(Constant.API_KEY, onInitializedListener)
+//        youtubePlay.initialize(Constant.API_KEY, onInitializedListener)
 
     }
 
     fun initView() {
         detailAdapter = DetailAdapter(mActivity, null) {}
-//        rvLinks.layoutManager = GridLayoutManager(mActivity, 2)
+        rvLinks.layoutManager = GridLayoutManager(mActivity, 2)
         rvLinks.isNestedScrollingEnabled = false
         rvLinks.adapter = detailAdapter
     }
