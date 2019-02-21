@@ -75,7 +75,7 @@
     <dimen name="sign_in_padding_logo">30dp</dimen>
 
     <!--contest-->
-    <dimen name="contest_media_height">150dp</dimen>
+    <dimen name="history_height">150dp</dimen>
 
     <!--hashtag-->
     <dimen name="hashtag_radius">20dp</dimen>

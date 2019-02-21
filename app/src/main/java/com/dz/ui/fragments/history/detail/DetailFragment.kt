@@ -16,7 +16,6 @@ import com.dz.ui.fragments.history.detail.adapter.DetailAdapter
 import com.dz.utilities.Constant
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
-import android.widget.Toast
 import android.util.Log
 import androidx.fragment.app.FragmentTransaction
 import com.dz.libraries.utilities.StringUtility
@@ -34,7 +33,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
     override val resourceId: Int get() = R.layout.history_detail_fragment
 
     override val titleId: Int get() = R.string.detail
-    private var VIDEO_ID = "ZLNO2c7nqjw"
+    private var VIDEO_ID = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,6 +49,9 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
         transaction.add(R.id.youtube_layout, youTubePlayerFragment).commit()
         youTubePlayerFragment.initialize(Constant.API_KEY, object : YouTubePlayer.OnInitializedListener {
             override fun onInitializationSuccess(p0: YouTubePlayer.Provider, player: YouTubePlayer, p2: Boolean) {
+                //TODO video id youtube
+                VIDEO_ID = "ZLNO2c7nqjw"
+                player.setFullscreen(false)
                 player.loadVideo(VIDEO_ID)
                 player.play()
             }
@@ -69,6 +71,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
             if (!StringUtility.isNullOrEmpty(link)) {
                 if (link.contains("v="))
                     VIDEO_ID = link.split("v=")[1]
+                initYoutubePlayer()
             }
         }
         rvLinks.layoutManager = GridLayoutManager(mActivity, 2)
