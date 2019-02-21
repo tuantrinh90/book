@@ -15,7 +15,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.qsoftvietnam.crp"
+        applicationId "com.app.ebook"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -55,7 +55,6 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':libraries')
-
 
     // kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -120,5 +119,7 @@ dependencies {
     // picasso
     implementation "com.squareup.picasso:picasso:$picasso"
     implementation "jp.wasabeef:picasso-transformations:$picassoTransform"
-    implementation "com.github.chrisbanes:PhotoView:2.0.0"
+    implementation 'com.github.chrisbanes:PhotoView:2.0.0'
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation "com.google.android.gms:play-services:8.4.0"
 }

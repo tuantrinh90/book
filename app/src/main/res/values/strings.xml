@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CRP</string>
+    <string name="app_name">Ebook</string>
     <string name="double_tap_to_exit">Double tap to Exit!</string>
     <string name="loading">loading…</string>
 
@@ -122,4 +122,8 @@
     <string name="reader">Người đọc</string>
     <string name="translator">Người dịch</string>
     <string name="author">Tác giả</string>
+
+    //history detail
+    <string name="detail">Chi tiết</string>
+
 </resources>

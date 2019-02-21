@@ -66,5 +66,8 @@ class Constant {
         const val UPLOAD_TYPE_SUBMISSIONS_60 = "submissions_video_60"
         const val UPLOAD_NUMBER_IMAGE = 4
         const val UPLOAD_NUMBER_FRIEND = 5
+
+        //youtube api
+        const val API_KEY = "AIzaSyBCqBQmEq2SvrU1t4dvaA9QiaMdu26YYNg"
     }
 }

@@ -7,7 +7,6 @@
     android:layout_height="wrap_content"
     android:background="@color/color_white"
     android:elevation="@dimen/elevation_header"
-    android:visibility="gone"
     android:theme="@style/AppTheme.AppBarOverlay"
     app:elevation="@dimen/elevation_header">
 
@@ -15,6 +14,7 @@
         android:id="@+id/tbToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
         android:contentInsetStart="@dimen/padding_layout"
         android:contentInsetLeft="@dimen/padding_layout"
         app:contentInsetLeft="@dimen/padding_layout"
@@ -29,15 +29,9 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="@string/app_name"
-            android:textColor="@color/color_black"
-            android:visibility="gone"
+            android:text="@string/history"
+            android:textColor="@color/color_white"
             app:textViewFontAssetName="@string/font_normal_display" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@null"
-            android:hint="@string/search" />
     </androidx.appcompat.widget.Toolbar>
 </com.google.android.material.appbar.AppBarLayout>

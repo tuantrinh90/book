@@ -71,7 +71,7 @@ class HistoryFragment : BaseMainFragment<IHistoryView, IHistoryPresenter>(), IHi
         rvResult.layoutManager = GridLayoutManager(context, 2)
         historyAdapter = HistoryAdapter(mActivity, null) {
             historyAdapter?.addItem(it)
-            AloneFragmentActivity.with(mActivity).start(DetailFragment::class.java)
+            AloneFragmentActivity.with(this).start(DetailFragment::class.java)
         }
         rvResult.adapter = historyAdapter
 
