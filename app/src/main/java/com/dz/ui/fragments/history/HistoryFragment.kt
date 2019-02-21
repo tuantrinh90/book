@@ -39,7 +39,6 @@ class HistoryFragment : BaseMainFragment<IHistoryView, IHistoryPresenter>(), IHi
         super.onViewCreated(view, savedInstanceState)
         bindButterKnife(view)
         initView()
-        loadData()
         eventSearch()
     }
 
@@ -61,6 +60,11 @@ class HistoryFragment : BaseMainFragment<IHistoryView, IHistoryPresenter>(), IHi
             }
             false
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadData()
     }
 
     fun initView() {

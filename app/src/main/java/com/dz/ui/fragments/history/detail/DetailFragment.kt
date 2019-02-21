@@ -10,7 +10,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
 
     override fun createPresenter(): IDetailPresenter = DetailPresenter(appComponent)
 
-    override val resourceId: Int get() = R.layout.history_fragment
+    override val resourceId: Int get() = R.layout.history_detail_fragment
 
     override val titleId: Int get() = R.string.home
 

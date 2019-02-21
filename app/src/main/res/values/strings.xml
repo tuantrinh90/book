@@ -113,5 +113,12 @@
     <string name="download">Tải về</string>
     <string name="infomation">Thông tin</string>
 
-    // <string name="category">Sách mới</string>
+    // history
+    <string name="category">Sách mới</string>
+    <string name="preface">(Trích lời nói đầu)</string>
+    <string name="general_infomation">Thông tin chung</string>
+    <string name="type_disc">Loại đĩa</string>
+    <string name="publishing">Nhà xuất bản</string>
+    <string name="reader">Người đọc</string>
+    <string name="translator">Người dịch</string>
 </resources>
