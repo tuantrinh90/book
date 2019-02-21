@@ -2,21 +2,18 @@ package com.dz.ui.fragments.history
 
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
-import com.dz.commons.activities.alonefragment.AloneFragmentActivity
 import com.dz.models.responses.BookResponse
 import com.dz.ui.R
 import com.dz.ui.fragments.BaseMainFragment
-import com.dz.ui.fragments.history.adapter.HistoryAdapter
 import com.dz.ui.fragments.history.detail.adapter.DetailAdapter
-import io.reactivex.disposables.CompositeDisposable
 
 class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetailView {
 
-
     @BindView(R.id.rvLinks)
-    lateinit var rVLinks: RecyclerView
+    lateinit var rvLinks: RecyclerView
     var detailAdapter: DetailAdapter? = null
 
     override fun createPresenter(): IDetailPresenter = DetailPresenter(appComponent)
@@ -33,10 +30,11 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
     }
 
     fun initView() {
+        rvLinks.layoutManager = GridLayoutManager(context, 2)
         detailAdapter = DetailAdapter(mActivity, null) {
             detailAdapter?.addItem(it)
         }
-        rVLinks.adapter = detailAdapter
+        rvLinks.adapter = detailAdapter
     }
 
     override fun onResume() {

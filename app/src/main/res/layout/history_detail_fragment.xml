@@ -23,8 +23,8 @@
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
                 android:id="@+id/rvLinks"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <com.dz.libraries.views.textviews.ExtTextView
