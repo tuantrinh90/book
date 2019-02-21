@@ -46,6 +46,8 @@ class HistoryFragment : BaseMainFragment<IHistoryView, IHistoryPresenter>(), IHi
     fun eventSearch() {
         // text change
         etSearch.textChangeConsumer = { text ->
+            Log.e("text:::::", text)
+            fillterSearch(text)
             newTextView = text
             etSearch.iconRightImageView.visibility = if (StringUtility.isNullOrEmpty(text)) View.INVISIBLE else View.VISIBLE
         }
@@ -54,7 +56,6 @@ class HistoryFragment : BaseMainFragment<IHistoryView, IHistoryPresenter>(), IHi
         // edit text search listener
         etSearch.etContent.setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                Log.e("text:::::", newTextView)
                 fillterSearch(newTextView!!)
                 return@OnEditorActionListener true
             }
@@ -77,8 +78,14 @@ class HistoryFragment : BaseMainFragment<IHistoryView, IHistoryPresenter>(), IHi
     }
 
     fun fillterSearch(query: String) {
-        val listSearch = historyAdapter?.getItems()!!.filter { it -> it!!.author!!.contains(query) } as ArrayList<BookResponse?>
-        historyAdapter?.setItems(listSearch)
-    }
+        if (StringUtility.isNullOrEmpty(query)) {
+            historyAdapter?.getItems()!!.clear()
+            loadData()
+        } else {
+            val listSearch = historyAdapter?.getItems()!!.filter { it -> it!!.author!!.contains(query) } as ArrayList<BookResponse?>
+            Log.e("listSearch:::", listSearch.toString())
+            historyAdapter?.setItems(listSearch)
+        }
 
+    }
 }
