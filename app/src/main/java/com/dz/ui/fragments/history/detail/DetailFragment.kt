@@ -35,6 +35,8 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
     override val titleId: Int get() = R.string.detail
     private var VIDEO_ID = ""
 
+    var favorite: Boolean = true
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindButterKnife(view)
@@ -88,6 +90,12 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
         presenter.getData()
     }
 
+    // check selected favorite
+    fun selectedFavorite(item: MenuItem?) {
+        item!!.setIcon(if (favorite) R.drawable.ic_star_selected else R.drawable.ic_star_unselected)
+        favorite = !favorite
+    }
+
     override fun setData(response: ArrayList<BookResponse?>?) {
         detailAdapter?.setItems(response)
     }
@@ -100,7 +108,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item!!.itemId) {
             R.id.action_favotite -> {
-
+                selectedFavorite(item)
             }
             R.id.action_download -> {
 
