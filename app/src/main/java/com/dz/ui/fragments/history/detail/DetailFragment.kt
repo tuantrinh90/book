@@ -6,7 +6,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBar
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import com.dz.models.responses.BookResponse
@@ -18,7 +17,9 @@ import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import android.util.Log
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dz.libraries.utilities.StringUtility
+import com.dz.utilities.AppUtility
 import com.google.android.youtube.player.YouTubePlayerSupportFragment
 
 
@@ -33,7 +34,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
     override val resourceId: Int get() = R.layout.history_detail_fragment
 
     override val titleId: Int get() = R.string.detail
-    private var VIDEO_ID = ""
+    private var VIDEO_ID = "ZLNO2c7nqjw"
 
     var favorite: Boolean = true
 
@@ -42,19 +43,17 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
         bindButterKnife(view)
         setHasOptionsMenu(true)
         initView()
-        initYoutubePlayer()
+        initYoutubePlayer(VIDEO_ID)
     }
 
-    fun initYoutubePlayer() {
+    fun initYoutubePlayer(videoId: String) {
         val youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance()
         transaction = childFragmentManager.beginTransaction()
         transaction.add(R.id.youtube_layout, youTubePlayerFragment).commit()
         youTubePlayerFragment.initialize(Constant.API_KEY, object : YouTubePlayer.OnInitializedListener {
             override fun onInitializationSuccess(p0: YouTubePlayer.Provider, player: YouTubePlayer, p2: Boolean) {
-                //TODO video id youtube
-                VIDEO_ID = "ZLNO2c7nqjw"
                 player.setFullscreen(false)
-                player.loadVideo(VIDEO_ID)
+                player.loadVideo(videoId)
                 player.play()
             }
 
@@ -72,11 +71,10 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
             val link = it!!.link!!
             if (!StringUtility.isNullOrEmpty(link)) {
                 if (link.contains("v="))
-                    VIDEO_ID = link.split("v=")[1]
-                initYoutubePlayer()
+                    initYoutubePlayer(link.split("v=")[1])
             }
         }
-        rvLinks.layoutManager = GridLayoutManager(mActivity, 2)
+        rvLinks.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         rvLinks.isNestedScrollingEnabled = false
         rvLinks.adapter = detailAdapter
     }
@@ -114,7 +112,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
 
             }
             R.id.action_share -> {
-
+                AppUtility.shareSocial(mActivity)
             }
         }
         return super.onOptionsItemSelected(item)

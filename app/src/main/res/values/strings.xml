@@ -126,4 +126,7 @@
     //history detail
     <string name="detail">Chi tiết</string>
 
+    //share
+    <string name="no_app_share">Bạn chưa có ứng dụng nào để chia sẻ vui lòng cài đặt Facebook hoặc Google+ để tiếp tục chia sẻ!</string>
+
 </resources>
