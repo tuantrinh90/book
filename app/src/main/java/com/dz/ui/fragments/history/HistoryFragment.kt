@@ -1,6 +1,7 @@
 package com.dz.ui.fragments.history
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -11,10 +12,15 @@ import butterknife.BindView
 import com.dz.commons.activities.alonefragment.AloneFragmentActivity
 import com.dz.customizes.views.edittexts.EditTextApp
 import com.dz.libraries.utilities.StringUtility
+import com.dz.models.database.Book
 import com.dz.models.responses.BookResponse
 import com.dz.ui.R
 import com.dz.ui.fragments.BaseMainFragment
 import com.dz.ui.fragments.history.adapter.HistoryAdapter
+import com.google.common.collect.Lists
+import java.io.Serializable
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HistoryFragment : BaseMainFragment<IHistoryView, IHistoryPresenter>(), IHistoryView {
 
@@ -31,8 +37,8 @@ class HistoryFragment : BaseMainFragment<IHistoryView, IHistoryPresenter>(), IHi
 
     override val titleId: Int get() = R.string.home
 
-    override fun setData(response: ArrayList<BookResponse?>?) {
-        historyAdapter?.setItems(response)
+    override fun setData(response: List<Book?>?) {
+        historyAdapter?.setItems(response as ArrayList<Book?>)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -71,7 +77,7 @@ class HistoryFragment : BaseMainFragment<IHistoryView, IHistoryPresenter>(), IHi
         rvResult.layoutManager = GridLayoutManager(context, 2)
         historyAdapter = HistoryAdapter(mActivity, null) {
             historyAdapter?.addItem(it)
-            AloneFragmentActivity.with(this).start(DetailFragment::class.java)
+            AloneFragmentActivity.with(this).parameters(DetailFragment.newBundle(it!!.id)).start(DetailFragment::class.java)
         }
         rvResult.adapter = historyAdapter
 
@@ -83,11 +89,10 @@ class HistoryFragment : BaseMainFragment<IHistoryView, IHistoryPresenter>(), IHi
 
     fun fillterSearch(query: String) {
         if (StringUtility.isNullOrEmpty(query)) {
-            historyAdapter?.getItems()!!.clear()
+            historyAdapter?.getItems()?.clear()
             loadData()
         } else {
-            val listSearch = historyAdapter?.getItems()!!.filter { it -> it!!.author!!.contains(query) } as ArrayList<BookResponse?>
-            Log.e("listSearch:::", listSearch.toString())
+            val listSearch = historyAdapter?.getItems()!!.filter { it -> it!!.author.contains(query) } as ArrayList<Book?>
             historyAdapter?.setItems(listSearch)
         }
 

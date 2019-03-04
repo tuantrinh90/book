@@ -122,4 +122,7 @@ dependencies {
     implementation 'com.github.chrisbanes:PhotoView:2.0.0'
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
     implementation "com.google.android.gms:play-services:8.4.0"
+
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version" // use kapt for Kotlin
 }

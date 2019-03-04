@@ -65,6 +65,7 @@
                 <com.dz.libraries.views.textviews.ExtTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:id="@+id/tvType"
                     android:layout_weight="1.8"
                     android:text="@string/preface" />
             </LinearLayout>
@@ -84,6 +85,7 @@
                 <com.dz.libraries.views.textviews.ExtTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:id="@+id/tvPublishing"
                     android:layout_weight="1.8"
                     android:text="@string/preface" />
             </LinearLayout>
@@ -102,6 +104,7 @@
 
                 <com.dz.libraries.views.textviews.ExtTextView
                     android:layout_width="0dp"
+                    android:id="@+id/tvAuthor"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.8"
                     android:text="@string/preface" />

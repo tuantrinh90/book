@@ -69,5 +69,7 @@ class Constant {
 
         //youtube api
         const val API_KEY = "AIzaSyBCqBQmEq2SvrU1t4dvaA9QiaMdu26YYNg"
+
+        const val KEY_INTENT_DETAIL = "INTENT_DETAIL"
     }
 }

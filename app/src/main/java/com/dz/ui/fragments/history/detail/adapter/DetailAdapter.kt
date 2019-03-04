@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
 import butterknife.BindView
+import com.dz.libraries.utilities.StringUtility
 import com.dz.libraries.views.recyclerviews.ExtRecyclerViewAdapter
 import com.dz.libraries.views.recyclerviews.ExtRecyclerViewHolder
 import com.dz.libraries.views.textviews.ExtTextView
@@ -18,10 +19,11 @@ class DetailAdapter(ctx: Context, its: ArrayList<BookResponse?>?, var itemConsum
 
     override fun onBindViewHolder(holder: ViewHolder, data: BookResponse?, position: Int) {
         holder.tvTitle.text = data?.name
-        PicasoUtility.get()
-                .load(data!!.link)
-                .placeholder(R.drawable.bg_background_radius_component)
-                .into(holder.ivPlayVideo)
+        StringUtility.with(data!!.link).doIfEmpty { return@doIfEmpty }
+                .doIfPresent { PicasoUtility.get()
+                        .load(data.link)
+                        .placeholder(R.drawable.bg_background_radius_component)
+                        .into(holder.ivPlayVideo) }
         holder.itemView.setOnClickListener { itemConsumer(data) }
     }
 

@@ -7,20 +7,21 @@ import butterknife.BindView
 import com.dz.libraries.views.recyclerviews.ExtRecyclerViewAdapter
 import com.dz.libraries.views.recyclerviews.ExtRecyclerViewHolder
 import com.dz.libraries.views.textviews.ExtTextView
+import com.dz.models.database.Book
 import com.dz.models.responses.BookResponse
 import com.dz.ui.R
 import com.dz.utilities.PicasoUtility
 
-class HistoryAdapter(ctx: Context, its: ArrayList<BookResponse?>?, var itemConsumer: (BookResponse?) -> Unit) : ExtRecyclerViewAdapter<BookResponse, HistoryAdapter.ViewHolder>(ctx, its) {
+class HistoryAdapter(ctx: Context, its: ArrayList<Book?>?, var itemConsumer: (Book?) -> Unit) : ExtRecyclerViewAdapter<Book, HistoryAdapter.ViewHolder>(ctx, its) {
     override fun getLayoutId(viewType: Int): Int = R.layout.item_history
 
     override fun onCreateHolder(view: View, viewType: Int): ViewHolder = ViewHolder(view)
 
-    override fun onBindViewHolder(holder: ViewHolder, data: BookResponse?, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, data: Book?, position: Int) {
         holder.tvAuthor.text = data?.author
         holder.tvNameBook.text = data?.name
         PicasoUtility.get()
-                .load(data!!.link)
+                .load(data!!.image)
                 .placeholder(R.drawable.bg_background_radius_component)
                 .into(holder.ivContent)
         holder.itemView.setOnClickListener { itemConsumer(data) }

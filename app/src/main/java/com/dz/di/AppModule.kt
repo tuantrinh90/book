@@ -1,5 +1,7 @@
 package com.dz.di
 
+import android.content.Context
+import androidx.room.Room
 import com.dz.applications.AppContext
 import com.dz.interactors.IDataModule
 import com.dz.interactors.databases.IDbModule
@@ -30,4 +32,5 @@ class AppModule(private val appContext: AppContext) {
     @Singleton
     @Provides
     fun provideApiModule(): ApiModule = ApiModule()
+
 }

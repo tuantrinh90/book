@@ -1,3 +1,5 @@
 package com.dz.interactors.databases
 
-interface IDbModule
+interface IDbModule {
+
+}
