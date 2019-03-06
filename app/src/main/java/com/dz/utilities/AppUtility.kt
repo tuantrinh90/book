@@ -2,22 +2,27 @@ package com.dz.utilities
 
 import android.Manifest
 import android.app.Activity
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
+import android.os.Parcelable
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.PopupWindow
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.dz.commons.activities.BaseAppCompatActivity
-import com.dz.commons.activities.alonefragment.AloneFragmentActivity
 import com.dz.customizes.views.popupviews.PopupView
 import com.dz.libraries.utilities.*
 import com.dz.libraries.views.keypairs.ExtKeyPair
 import com.dz.libraries.views.keypairs.ExtKeyPairDialogFragment
 import com.dz.ui.R
+import com.google.android.gms.plus.PlusShare
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
@@ -282,6 +287,82 @@ class AppUtility {
                 MediaUtility.isVideo(file) -> Constant.UPLOAD_TYPE_VIDEOS_60
                 else -> Constant.UPLOAD_TYPE_FILES
             }
+        }
+
+        fun shareSocial(activity: Activity?) {
+            val targetShareIntents = java.util.ArrayList<Intent>()
+            val shareIntent = Intent()
+            shareIntent.action = Intent.ACTION_SEND
+            shareIntent.type = "text/plain"
+            val resInfos = activity!!.packageManager.queryIntentActivities(shareIntent, 0)
+            if (!resInfos.isEmpty()) {
+                for (resInfo in resInfos) {
+                    val packageName = resInfo.activityInfo.packageName
+                    Log.d("packageName", "shareSocial: $packageName")
+                    if (packageName.contains("com.facebook.katana")) {
+                        val intent = Intent()
+                        intent.component = ComponentName(packageName, resInfo.activityInfo.name)
+                        intent.action = Intent.ACTION_SEND
+                        intent.type = "text/plain"
+                        intent.putExtra(Intent.EXTRA_TEXT, Constant.APP_LINK_SHARE)
+                        intent.setPackage(packageName)
+                        intent.setClassName(resInfo.activityInfo.packageName, resInfo.activityInfo.name)
+                        targetShareIntents.add(intent)
+                    }
+                    if (packageName.contains("com.samsung.android.messaging")) {
+                        val intent = Intent()
+                        intent.component = ComponentName(packageName, resInfo.activityInfo.name)
+                        intent.action = Intent.ACTION_SEND
+                        intent.type = "text/plain"
+                        intent.putExtra(Intent.EXTRA_TEXT, Constant.APP_LINK_SHARE)
+                        intent.setPackage(packageName)
+                        targetShareIntents.add(intent)
+                    }
+                    if (packageName.contains("com.twitter.android")) {
+                        val intent = Intent()
+                        intent.component = ComponentName(packageName, resInfo.activityInfo.name)
+                        intent.action = Intent.ACTION_SEND
+                        intent.type = "text/plain"
+                        intent.putExtra(Intent.EXTRA_TEXT, Constant.APP_LINK_SHARE)
+                        intent.setPackage(packageName)
+                        targetShareIntents.add(intent)
+                    }
+                    if (packageName.contains("com.instagram.android")) {
+                        val intent = Intent()
+                        intent.component = ComponentName(packageName, resInfo.activityInfo.name)
+                        intent.action = Intent.ACTION_SEND
+                        intent.type = "image/*"
+                        intent.putExtra(Intent.EXTRA_TEXT, Constant.APP_LINK_SHARE)
+                        intent.setPackage(packageName)
+                        targetShareIntents.add(intent)
+                    }
+                    if (packageName.contains("com.samsung.android.email.provider")) {
+                        val intent = Intent()
+                        intent.component = ComponentName(packageName, resInfo.activityInfo.name)
+                        intent.action = Intent.ACTION_SEND
+                        intent.type = "text/plain"
+                        intent.putExtra(Intent.EXTRA_TEXT, Constant.APP_LINK_SHARE)
+                        intent.setPackage(packageName)
+                        targetShareIntents.add(intent)
+                    }
+                    if (packageName.contains("com.google.android.gm")) {
+                        val intent = PlusShare.Builder(activity)
+                                .setType("text/plain")
+                                .setText("Welcome to Ebook")
+                                .setContentUrl(Uri.parse(Constant.APP_LINK_SHARE))
+                                .intent
+                        targetShareIntents.add(intent)
+                    }
+                }
+                if (!targetShareIntents.isEmpty()) {
+                    val chooserIntent = Intent.createChooser(targetShareIntents.removeAt(0), "Select application to share!")
+                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetShareIntents.toTypedArray<Parcelable>())
+                    activity.startActivityForResult(chooserIntent, 200)
+                } else {
+                    Toast.makeText(activity, activity!!.resources.getString(R.string.no_app_share), Toast.LENGTH_SHORT).show()
+                }
+            }
+
         }
 
     }

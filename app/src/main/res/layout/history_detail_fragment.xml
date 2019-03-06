@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -38,9 +39,16 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_layout"
+                android:layout_marginTop="@dimen/padding_content"
                 android:gravity="center"
-                android:text="@string/search" />
+                tools:text="Đây quả là lời dạy giàu triết lý được chắt lọc từ việc tế nhị thể nghiệm cuộc đời mang lại,
+                 thấm đẫm trong từng câu chữ. Bên cạnh đó hòa thượng còn chỉ thẳng vào những nghi ngang trong tình cảm,
+                 trong cuộc sống như: phải chăng nói đến tình là nói đến trái đắng cuộc đời, đâu là tình yêu đích thực,
+                  làm thế nào để điều phục, quản lý tâm tư tình cảm. Không chỉ thế ngài còn nêu ra tâm tư tình cảm của các bậc
+                   làm cha mẹ khi muốn con mình: gái thành phượng, trai thành rồng. Tất cả nghi ngang phổ biến trong đời sống,
+                    tâm tư tình cảm phát sinh từ các mối quan hệ trong xã hội hiện đại đều được hòa thượng giải đáp theo
+                     triết lý nhà Phật, rất hữu dụng hữu ích. Qua đó, Thầy cũng vén mở thêm cho người đọc một chân trời
+                     mới vượt thoát thế giới tình cảm nhiều phiền não của chúng sinh." />
 
             <com.dz.libraries.views.textviews.ExtTextView
                 android:layout_width="match_parent"
@@ -67,7 +75,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/tvType"
                     android:layout_weight="1.8"
-                    android:text="@string/preface" />
+                    android:text="C"
+                    tools:text="C" />
             </LinearLayout>
 
             <LinearLayout
@@ -87,7 +96,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/tvPublishing"
                     android:layout_weight="1.8"
-                    android:text="@string/preface" />
+                    android:text="Thời Đại"
+                    tools:text="Thời Đại" />
             </LinearLayout>
 
             <LinearLayout
@@ -100,14 +110,35 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/author" />
+                    android:text="@string/translator" />
+
+                <com.dz.libraries.views.textviews.ExtTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.8"
+                    android:text="Hòa thượng Thích Thánh Nghiêm"
+                    tools:text="Hòa thượng Thích Thánh Nghiêm" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_small"
+                android:orientation="horizontal">
+
+                <com.dz.libraries.views.textviews.ExtTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/reader" />
 
                 <com.dz.libraries.views.textviews.ExtTextView
                     android:layout_width="0dp"
                     android:id="@+id/tvAuthor"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.8"
-                    android:text="@string/preface" />
+                    android:text="Tuấn Anh, Kiều Hạnh"
+                    tools:text="Tuấn Anh, Kiều Hạnh" />
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

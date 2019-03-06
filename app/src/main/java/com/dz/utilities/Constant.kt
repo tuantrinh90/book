@@ -41,6 +41,8 @@ class Constant {
         const val OPEN = 1
         const val CLOSED = 2
 
+        const val APP_LINK_SHARE = "https://dieuphapam.net/dpa/nhan-gian-huu-tinh.4057/"
+
         // file type
         const val TYPE_IMAGE = 0
         const val TYPE_VIDEO = 1
