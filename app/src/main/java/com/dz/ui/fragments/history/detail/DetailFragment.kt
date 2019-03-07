@@ -72,8 +72,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
         val id: Int = arguments?.get(Constant.KEY_INTENT_DETAIL) as Int
         presenter.getBookById(id)
 
-        initView()
-        initYoutubePlayer(VIDEO_ID)
+
     }
 
     fun initYoutubePlayer(videoId: String) {

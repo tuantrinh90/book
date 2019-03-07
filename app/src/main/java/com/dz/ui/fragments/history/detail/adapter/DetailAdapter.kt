@@ -19,11 +19,6 @@ class DetailAdapter(ctx: Context, its: ArrayList<BookResponse?>?, var itemConsum
 
     override fun onBindViewHolder(holder: ViewHolder, data: BookResponse?, position: Int) {
         holder.tvTitle.text = data?.name
-        StringUtility.with(data!!.link).doIfEmpty { return@doIfEmpty }
-                .doIfPresent { PicasoUtility.get()
-                        .load(data.link)
-                        .placeholder(R.drawable.bg_background_radius_component)
-                        .into(holder.ivPlayVideo) }
         holder.numberHistory.text = (position + 1).toString()
         holder.itemView.setOnClickListener { itemConsumer(data) }
     }
