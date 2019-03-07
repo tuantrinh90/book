@@ -11,10 +11,10 @@ import io.reactivex.schedulers.Schedulers
 class FavoritePresenter(appComponent: AppComponent) : BaseFragmentMvpPresenter<IFavoriteView>(appComponent), IFavoritePresenter {
     override fun getBook() {
         getView {
-            Observable.fromCallable({
+            Observable.fromCallable {
                 dataModule.getFavoriteBook()
 
-            }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(object : DisposableObserver<List<Book>>() {
+            }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(object : DisposableObserver<List<Book>>() {
                 override fun onComplete() {}
 
                 override fun onNext(t: List<Book>) {

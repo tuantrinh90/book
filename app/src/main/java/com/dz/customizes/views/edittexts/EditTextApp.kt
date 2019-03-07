@@ -186,7 +186,7 @@ class EditTextApp : LinearLayout {
             override fun beforeTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 setUpTextInputLayout(etContent.isFocused)
-                textChangeConsumer?.invoke("${charSequence.toString().toLowerCase().trim()}")
+                textChangeConsumer?.invoke("${charSequence.toString().trim()}")
             }
         })
 

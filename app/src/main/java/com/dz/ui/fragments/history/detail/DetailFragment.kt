@@ -16,7 +16,6 @@ import com.dz.utilities.Constant
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import android.util.Log
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -63,7 +62,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
     private var VIDEO_ID = ""
     private var book: Book? = null
 
-    var favorite: Boolean = false
+    var isFavorite: Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -128,7 +127,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
         super.onCreateOptionsMenu(menu, inflater)
         inflater!!.inflate(R.menu.menu_detail, menu)
         val icon = menu!!.findItem(R.id.action_favotite)
-        icon.setIcon(if (favorite) R.drawable.ic_star_selected else R.drawable.ic_star_unselected)
+        icon.setIcon(if (isFavorite) R.drawable.ic_star_selected else R.drawable.ic_star_unselected)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -152,18 +151,18 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
         supportActionBar.setHomeAsUpIndicator(R.drawable.ic_back)
     }
 
-    // check selected favorite
+    // check selected isFavorite
     fun selectedFavorite(item: MenuItem?) {
-        favorite = !favorite
-        book!!.favorite = favorite
-        item!!.setIcon(if (favorite) R.drawable.ic_star_selected else R.drawable.ic_star_unselected)
+        isFavorite = !book!!.favorite
+        item!!.setIcon(if (isFavorite) R.drawable.ic_star_selected else R.drawable.ic_star_unselected)
+        book?.favorite = isFavorite
         presenter.updateFavorite(book as Book)
     }
 
     // get book by ID
     override fun getBook(book: Book) {
         this.book = book
-        favorite = book.favorite
+        isFavorite = book.favorite
         initView()
         initYoutubePlayer(VIDEO_ID)
     }
