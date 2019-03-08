@@ -8,6 +8,8 @@ import io.reactivex.disposables.CompositeDisposable
 
 class DownloadFragment : BaseMainFragment<IDownloadView, IDownloadPresenter>(), IDownloadView {
 
+
+
     override fun createPresenter(): IDownloadPresenter = DownloadPresenter(appComponent)
 
     override val resourceId: Int get() = R.layout.download_fragment

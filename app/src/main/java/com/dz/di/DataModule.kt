@@ -11,6 +11,7 @@ import com.dz.interactors.repository.BookRepository
 import com.dz.libraries.rxbus.IEvent
 import com.dz.libraries.rxbus.RxBus
 import com.dz.libraries.utilities.NetworkUtility
+import com.dz.models.BookDetail
 import com.dz.models.database.Book
 import dagger.Module
 import javax.inject.Inject
@@ -113,6 +114,18 @@ class DataModule(component: AppComponent) : IDataModule {
         return books
 
     }
+
+    override fun getBookDetail(): List<BookDetail> {
+        var bookDetail = ArrayList<BookDetail>()
+        bookDetail.add(BookDetail("test100Mb", "http://speedtest.ftp.otenet.gr/files/test100Mb.db"))
+        bookDetail.add(BookDetail("BigBuckBunny_640x360", "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_640x360.m4v"))
+        bookDetail.add(BookDetail("zips", "http://media.mongodb.org/zips.json"))
+        bookDetail.add(BookDetail("testsong_20_sec", "https://www.hrupin.com/wp-content/uploads/mp3/testsong_20_sec.mp3"))
+        bookDetail.add(BookDetail("android_logo", "http://storage.googleapis.com/ix_choosemuse/uploads/2016/02/android-logo.png"))
+        bookDetail.add(BookDetail("cropped_web_hi_res_512", "http://www.gadgetsaint.com/wp-content/uploads/2016/11/cropped-web_hi_res_512.png"))
+        return bookDetail
+    }
+
 
     override fun deeleteBook(book: Book) {
         bookRepository = BookRepository(intanceDao())

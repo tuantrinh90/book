@@ -22,13 +22,13 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dz.libraries.utilities.StringUtility
 import com.dz.libraries.views.textviews.ExtTextView
+import com.dz.models.BookDetail
 import com.dz.models.database.Book
 import com.dz.utilities.AppUtility
 import com.google.android.youtube.player.YouTubePlayerSupportFragment
 
 
 class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetailView {
-
 
     companion object {
         fun newBundle(id: Int): Bundle = bundleOf(Constant.KEY_INTENT_DETAIL to id)
@@ -70,6 +70,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
         setHasOptionsMenu(true)
         val id: Int = arguments?.get(Constant.KEY_INTENT_DETAIL) as Int
         presenter.getBookById(id)
+        presenter.setBookDetail()
 
 
     }
@@ -116,12 +117,17 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
 
     override fun onResume() {
         super.onResume()
-        presenter.getData()
+        //presenter.getData()
     }
 
     override fun setData(response: ArrayList<BookResponse?>?) {
-        detailAdapter?.setItems(response)
+        //detailAdapter?.setItems(response)
     }
+
+    override fun getBookDetail(bookDetail: List<BookDetail?>?) {
+        detailAdapter?.setItems(bookDetail as ArrayList<BookDetail?>)
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         super.onCreateOptionsMenu(menu, inflater)

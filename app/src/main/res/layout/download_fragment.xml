@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <com.dz.libraries.views.recyclerviews.ExtRecyclerView
-        android:id="@+id/list_book"
+        android:id="@+id/list_download"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/padding_layout"

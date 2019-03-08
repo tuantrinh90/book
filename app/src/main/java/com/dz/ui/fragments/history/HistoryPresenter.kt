@@ -11,10 +11,10 @@ import io.reactivex.schedulers.Schedulers
 class HistoryPresenter(appComponent: AppComponent) : BaseFragmentMvpPresenter<IHistoryView>(appComponent), IHistoryPresenter {
     override fun getBook() {
         getView {
-            Observable.fromCallable({
+            Observable.fromCallable {
                 dataModule.intanceBook()
 
-            }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(object : DisposableObserver<List<Book>>() {
+            }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(object : DisposableObserver<List<Book>>() {
                 override fun onComplete() {}
 
                 override fun onNext(t: List<Book>) {

@@ -10,4 +10,6 @@ interface IDetailPresenter : IBaseFragmentMvpPresenter<IDetailView> {
     fun updateFavorite(book: Book)
 
     fun getBookById(id: Int)
+
+    fun setBookDetail()
 }

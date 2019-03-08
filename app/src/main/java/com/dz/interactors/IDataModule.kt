@@ -5,6 +5,7 @@ import com.dz.interactors.services.IApiService
 import com.dz.interactors.services.IFileApiService
 import com.dz.interactors.services.ILongApiService
 import com.dz.interactors.databases.IDbModule
+import com.dz.models.BookDetail
 import com.dz.models.database.Book
 
 interface IDataModule {
@@ -29,5 +30,7 @@ interface IDataModule {
     fun getBookbyID(id: Int): Book
 
     fun getFavoriteBook(): List<Book>
+
+    fun getBookDetail(): List<BookDetail>
 
 }
