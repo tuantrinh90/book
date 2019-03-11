@@ -68,6 +68,11 @@ class DataModule(component: AppComponent) : IDataModule {
         return bookRepository.getFavoriteBook()
     }
 
+    override fun getDownloadedBook(): List<Book> {
+        bookRepository = BookRepository(intanceDao())
+        return bookRepository.getDownloadedBook()
+    }
+
     override fun intanceBook(): List<Book> {
         bookRepository = BookRepository(intanceDao())
         var books = ArrayList<Book>()
@@ -77,35 +82,40 @@ class DataModule(component: AppComponent) : IDataModule {
                     1, "Vô lượng thọ"
                     , "Nam mô a di đà phật",
                     "Thích Giác Nhàn",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokoT2fdDP5dm7RvVh80_LvoxdhF4By5DkcliO4yukgMMOeRZj", false, 1, "Loại A", "Xuất bản trẻ Việt Nam")
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokoT2fdDP5dm7RvVh80_LvoxdhF4By5DkcliO4yukgMMOeRZj",
+                    false, false, 1, "Loại A", "Xuất bản trẻ Việt Nam")
             bookRepository.addNewBook(book)
             books.add(book)
             var book1 = Book(
                     2, "Vô lượng thọ 1 "
                     , "Nam mô a di đà phật",
                     "Hòa thượng tinh không",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokoT2fdDP5dm7RvVh80_LvoxdhF4By5DkcliO4yukgMMOeRZj", false, 1, "Loại A", "Xuất bản trẻ Việt Nam")
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokoT2fdDP5dm7RvVh80_LvoxdhF4By5DkcliO4yukgMMOeRZj",
+                    false, false, 1, "Loại A", "Xuất bản trẻ Việt Nam")
             bookRepository.addNewBook(book1)
             books.add(book1)
             var book2 = Book(
                     3, "Vô lượng thọ 1 "
                     , "Nam mô a di đà phật",
                     "Hòa thượng tinh không",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokoT2fdDP5dm7RvVh80_LvoxdhF4By5DkcliO4yukgMMOeRZj", false, 1, "Loại A", "Xuất bản trẻ Việt Nam")
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokoT2fdDP5dm7RvVh80_LvoxdhF4By5DkcliO4yukgMMOeRZj",
+                    false, false, 1, "Loại A", "Xuất bản trẻ Việt Nam")
             bookRepository.addNewBook(book2)
             books.add(book2)
             var book3 = Book(
                     4, "Vô lượng thọ 1 "
                     , "Nam mô a di đà phật",
                     "Hòa thượng tinh không",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokoT2fdDP5dm7RvVh80_LvoxdhF4By5DkcliO4yukgMMOeRZj", false, 1, "Loại A", "Xuất bản trẻ Việt Nam")
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokoT2fdDP5dm7RvVh80_LvoxdhF4By5DkcliO4yukgMMOeRZj",
+                    false, false, 1, "Loại A", "Xuất bản trẻ Việt Nam")
             bookRepository.addNewBook(book3)
             books.add(book3)
             var book4 = Book(
                     5, "Vô lượng thọ 1 "
                     , "Nam mô a di đà phật",
                     "Hòa thượng tinh không",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokoT2fdDP5dm7RvVh80_LvoxdhF4By5DkcliO4yukgMMOeRZj", false, 1, "Loại A", "Xuất bản trẻ Việt Nam")
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokoT2fdDP5dm7RvVh80_LvoxdhF4By5DkcliO4yukgMMOeRZj",
+                    false, false, 1, "Loại A", "Xuất bản trẻ Việt Nam")
             bookRepository.addNewBook(book4)
             books.add(book4)
         } else {

@@ -8,6 +8,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
+import android.os.Environment
 import android.os.Parcelable
 import android.util.Log
 import android.view.View
@@ -363,6 +364,10 @@ class AppUtility {
                 }
             }
 
+        }
+
+        fun getFileBook(id: Int): String {
+            return Environment.getExternalStorageDirectory().toString() + "/" + id + "/" + "DownloadBook"
         }
 
     }

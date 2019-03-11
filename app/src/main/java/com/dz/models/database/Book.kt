@@ -24,6 +24,8 @@ data class Book(
         var image: String,
         @ColumnInfo(name = "favorite")
         var favorite: Boolean,
+        @ColumnInfo(name = "isDownload")
+        var isDownload: Boolean,
         @ColumnInfo(name = "category_id")
         var category_id: Int,
         @ColumnInfo(name = "type")

@@ -31,6 +31,8 @@ interface IDataModule {
 
     fun getFavoriteBook(): List<Book>
 
+    fun getDownloadedBook(): List<Book>
+
     fun getBookDetail(): List<BookDetail>
 
 }

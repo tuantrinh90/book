@@ -11,11 +11,14 @@ class BookRepository(mIdbDao: IDbDao) {
     fun addNewBook(book: Book) {
         if (getBookByID(book.id) == null)
             iDbDao.insertBook(book)
-        return
     }
 
     fun getFavoriteBook(): List<Book> {
         return iDbDao.getFavoriteBook()
+    }
+
+    fun getDownloadedBook(): List<Book> {
+        return iDbDao.getDownloadedBook()
     }
 
     fun getBookByID(id: Int) = iDbDao.getBookById(id)

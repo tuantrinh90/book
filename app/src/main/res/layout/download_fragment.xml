@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="bottom"
     android:orientation="vertical">
 
-    <com.dz.libraries.views.recyclerviews.ExtRecyclerView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_radius"
+        android:padding="@dimen/padding_layout">
+
+        <com.dz.customizes.views.edittexts.EditTextApp
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_border_gray_radius"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLength="@integer/max_length_text_search"
+            app:editTextAppContentColor="@color/color_border"
+            app:editTextAppHint="@string/search_by_name"
+            app:editTextAppHintColor="@color/color_border"
+            app:editTextAppIconLeft="@drawable/ic_search"
+            app:editTextAppIconRight="@drawable/ic_close_circle_black"
+            app:editTextAppLineVisible="false" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_layout"
+        android:text="@string/category" />
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_download"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

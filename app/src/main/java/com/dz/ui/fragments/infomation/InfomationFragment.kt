@@ -2,11 +2,13 @@ package com.dz.ui.fragments.history
 
 import android.os.Bundle
 import android.view.View
+import com.dz.models.database.Book
 import com.dz.ui.R
 import com.dz.ui.fragments.BaseMainFragment
-import io.reactivex.disposables.CompositeDisposable
 
 class InfomationFragment : BaseMainFragment<IDownloadView, IDownloadPresenter>(), IDownloadView {
+    override fun setData(response: List<Book?>?) {
+    }
 
     override fun createPresenter(): IDownloadPresenter = DownloadPresenter(appComponent)
 

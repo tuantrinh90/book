@@ -11,7 +11,6 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -29,7 +28,6 @@ import com.google.android.youtube.player.YouTubePlayer
 import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.content.FileProvider
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -83,7 +81,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
     lateinit var downloadManager: DownloadManager
     var list = ArrayList<Long>()
     var refid: Long? = 0
-    lateinit var menuDownload: MenuItem
+    var menuDownload: MenuItem? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -149,7 +147,13 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
         inflater!!.inflate(R.menu.menu_detail, menu)
         val icon = menu!!.findItem(R.id.action_favotite)
         icon.setIcon(if (isFavorite) R.drawable.ic_star_selected else R.drawable.ic_star_unselected)
-        menuDownload = menu!!.findItem(R.id.action_download)
+        menuDownload = menu?.findItem(R.id.action_download)
+        val folderPath = File(AppUtility.getFileBook(book!!.id))
+        if (folderPath.exists() && folderPath.isDirectory) {
+            if (folderPath.listFiles() != null && folderPath.listFiles().isNotEmpty()) {
+                menuDownload!!.isVisible = false
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -158,7 +162,9 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
                 selectedFavorite(item)
             }
             R.id.action_download -> {
-                acctionDownload()
+                book?.isDownload = true
+                presenter.updateFavorite(book as Book)
+                actionDownload()
             }
             R.id.action_share -> {
                 AppUtility.shareSocial(mActivity)
@@ -188,13 +194,12 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
         initView()
         initYoutubePlayer(VIDEO_ID)
         presenter.setBookDetail()
-        if (list.isEmpty()) menuDownload.isVisible = false
     }
 
     fun isStoragePermissionGranted(): Boolean {
         if (Build.VERSION.SDK_INT >= 23) {
             if (context!!.checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    === PackageManager.PERMISSION_GRANTED) {
+                    == PackageManager.PERMISSION_GRANTED) {
                 return true
             } else {
                 ActivityCompat.requestPermissions(mActivity,
@@ -218,7 +223,7 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
                         .setContentText("All Download completed")
                 val notificationManager = context!!.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                 notificationManager.notify(455, mBuilder.build())
-                menuDownload.isVisible = false
+                menuDownload!!.isVisible = false
             }
         }
     }
@@ -234,12 +239,12 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
         }
     }
 
-    fun acctionDownload() {
+    fun actionDownload() {
         list.clear()
         if (detailAdapter == null) return
         for (bookDetail in detailAdapter.getItems()!!) {
             var downloadUri = Uri.parse(bookDetail!!.link)
-            var folderPath = File(Environment.getExternalStorageDirectory().toString() + "/" + "DownloadBook")
+            var folderPath = File(AppUtility.getFileBook(book!!.id))
             if (!folderPath.exists())
                 folderPath.mkdirs()
             val filePath = folderPath.toString() + "/" + downloadUri.lastPathSegment
@@ -248,8 +253,8 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
             val request = DownloadManager.Request(downloadUri)
             request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
             request.setAllowedOverRoaming(false)
-            request.setTitle(bookDetail!!.link)
-            request.setDescription(bookDetail!!.link)
+            request.setTitle(bookDetail?.link)
+            request.setDescription(bookDetail?.link)
             request.setVisibleInDownloadsUi(true)
             request.setDestinationUri(destinationUri)
             refid = downloadManager.enqueue(request)

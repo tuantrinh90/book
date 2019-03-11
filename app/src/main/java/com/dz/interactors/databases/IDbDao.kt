@@ -23,6 +23,9 @@ interface IDbDao {
     @Query("SELECT * FROM Book where favorite = 1")
     fun getFavoriteBook(): List<Book>
 
+    @Query("SELECT * FROM Book where isDownload = 1")
+    fun getDownloadedBook(): List<Book>
+
     @Query("SELECT * FROM Book")
     fun getBooks(): List<Book>
 
