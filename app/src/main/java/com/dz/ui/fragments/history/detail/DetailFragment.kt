@@ -23,23 +23,19 @@ import com.dz.ui.R
 import com.dz.ui.fragments.BaseMainFragment
 import com.dz.ui.fragments.history.detail.adapter.DetailAdapter
 import com.dz.utilities.Constant
-import com.google.android.youtube.player.YouTubeInitializationResult
-import com.google.android.youtube.player.YouTubePlayer
 import android.util.Log
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.content.FileProvider
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dz.libraries.utilities.StringUtility
 import com.dz.libraries.views.textviews.ExtTextView
 import com.dz.models.BookDetail
 import com.dz.models.database.Book
 import com.dz.ui.BuildConfig
 import com.dz.utilities.AppUtility
-import com.google.android.youtube.player.YouTubePlayerSupportFragment
+import com.dz.utilities.PicasoUtility
 import java.io.File
 
 
@@ -55,6 +51,9 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
     @BindView(R.id.tvType)
     lateinit var tvType: ExtTextView
 
+    @BindView(R.id.ivAvatar)
+    lateinit var ivAvatar: AppCompatImageView
+
     @BindView(R.id.tvPublishing)
     lateinit var tvPublishing: ExtTextView
 
@@ -66,15 +65,12 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
 
     lateinit var detailAdapter: DetailAdapter
 
-    lateinit var transaction: FragmentTransaction
-
     override fun createPresenter(): IDetailPresenter = DetailPresenter(appComponent, mActivity)
 
     override val resourceId: Int get() = R.layout.history_detail_fragment
 
     override val titleId: Int get() = R.string.detail
 
-    private var VIDEO_ID = ""
     private var book: Book? = null
 
     var isFavorite: Boolean = false
@@ -91,37 +87,11 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
         presenter.getBookById(id)
     }
 
-    fun initYoutubePlayer(videoId: String) {
-        val youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance()
-        transaction = childFragmentManager.beginTransaction()
-        transaction.replace(R.id.youtube_layout, youTubePlayerFragment as Fragment).commit()
-        youTubePlayerFragment.initialize(Constant.API_KEY, object : YouTubePlayer.OnInitializedListener {
-            override fun onInitializationSuccess(p0: YouTubePlayer.Provider, player: YouTubePlayer, p2: Boolean) {
-                player.setFullscreen(false)
-                player.loadVideo(videoId)
-                player.play()
-            }
-
-            override fun onInitializationFailure(p0: YouTubePlayer.Provider?, error: YouTubeInitializationResult?) {
-                val errorMessage = error.toString()
-                showToastError(errorMessage)
-                Log.d("errorMessage:", errorMessage)
-            }
-
-        })
-    }
-
     fun initView() {
         isStoragePermissionGranted()
         downloadManager = context!!.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
         context!!.registerReceiver(onComplete, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        detailAdapter = DetailAdapter(mActivity, null) {
-            val link = it!!.link!!
-            if (!StringUtility.isNullOrEmpty(link)) {
-                if (link.contains("v="))
-                    initYoutubePlayer(link.split("v=")[1])
-            }
-        }
+        detailAdapter = DetailAdapter(mActivity, null) {}
         rvLinks.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         rvLinks.isNestedScrollingEnabled = false
         rvLinks.adapter = detailAdapter
@@ -162,8 +132,6 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
                 selectedFavorite(item)
             }
             R.id.action_download -> {
-                book?.isDownload = true
-                presenter.updateFavorite(book as Book)
                 actionDownload()
             }
             R.id.action_share -> {
@@ -192,8 +160,11 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
         this.book = book
         isFavorite = book.favorite
         initView()
-        initYoutubePlayer(VIDEO_ID)
         presenter.setBookDetail()
+        PicasoUtility.get()
+                .load(book!!.image)
+                .placeholder(R.drawable.bg_background_radius_component)
+                .into(ivAvatar)
     }
 
     fun isStoragePermissionGranted(): Boolean {
@@ -224,6 +195,8 @@ class DetailFragment : BaseMainFragment<IDetailView, IDetailPresenter>(), IDetai
                 val notificationManager = context!!.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                 notificationManager.notify(455, mBuilder.build())
                 menuDownload!!.isVisible = false
+                book?.isDownload = true
+                presenter.updateFavorite(book as Book)
             }
         }
     }

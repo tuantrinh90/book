@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:layout_marginLeft="@dimen/padding_content"
+    android:layout_marginRight="@dimen/padding_content"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -28,6 +30,7 @@
                 android:id="@+id/ivContent"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/history_height"
+                android:scaleType="centerCrop"
                 android:src="@drawable/ic_add_circle_blue"
                 tools:ignore="ContentDescription" />
 

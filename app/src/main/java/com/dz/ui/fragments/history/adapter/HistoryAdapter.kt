@@ -8,7 +8,6 @@ import com.dz.libraries.views.recyclerviews.ExtRecyclerViewAdapter
 import com.dz.libraries.views.recyclerviews.ExtRecyclerViewHolder
 import com.dz.libraries.views.textviews.ExtTextView
 import com.dz.models.database.Book
-import com.dz.models.responses.BookResponse
 import com.dz.ui.R
 import com.dz.utilities.PicasoUtility
 
